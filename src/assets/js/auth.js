@@ -1,33 +1,38 @@
-/* Funciones relacionadas con autentificación de usuari@s */
-
 export const loginGoogle = () => {
-    // console.log('Login con Google OK');
-    const provider = new firebase.auth.GoogleAuthProvider();
-  
-    // this will return a promise
-    firebase.auth().signInWithPopup(provider)
-      .then(result => {
-        const user = result.user;
-        // console.log("Hola", user.displayName);
-        let userName = splitGoogleDisplayName(user.displayName);
-        saveUserToDatabaseAfterLogin(user.uid, userName.firstName, userName.lastName, user.email);
-        // console.log(saveUserToDatabaseAfterLogin());
-        })
-      .catch(err => {
-        console.log(err);
-      })
-  }
-  
-  const splitGoogleDisplayName = (displayName) => {
-    var splitDisplayNameArray = displayName.split(" ");
-    let userName = {
-      firstName: splitDisplayNameArray[0],
-      lastName: splitDisplayNameArray[1],
+  const provider = new firebase.auth.GoogleAuthProvider();
+
+  // esto devolvera una promesa
+  firebase.auth().signInWithPopup(provider).then(result => {
+      const user = result.user;
+      let userData = {
+        uid: user.uid,
+        fullName: user.displayName,
+        email: user.email,
+      } 
+      saveUserToDatabaseAfterLogin(userData);
+    })
+    .catch(err => {console.log(err);});
+}
+
+//salvando los datos en la base dr dato de firebasa despues de logiarse con google
+const saveUserToDatabaseAfterLogin = (userData) => {
+  const db = firebase.firestore();
+  let docRef = db.collection('users').doc(userData.uid);
+  docRef.get()
+  .then(doc => {
+    if (!doc.exists) {
+          docRef.set({
+        uid: userData.uid,
+        fullName: userData.fullName,
+        email: userData.email,
+      });
     }
-  
-    return userName;
-  }
-  
-  const saveUserToDatabaseAfterLogin = (uid, firstName, lastName, email) => {
-    console.log(uid, firstName, lastName, email);
-  };
+      sessionStorage.setItem('uid', doc.data().uid);
+      sessionStorage.setItem('fullName', doc.data().fullName);   
+      sessionStorage.setItem('email', doc.data().email);   
+      window.location.hash = '#/wall';
+    })
+  .catch(err => {
+    console.log('Error getting document', err);
+  }); 
+};

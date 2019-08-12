@@ -3,9 +3,9 @@ export const templateRegister = () => {
   //escrir html
   const contentRegister = `<h1>REGISTRAR cuenta</h1>
                             <p>Escriba su nombre</p>                            
-                            <input type= "text">
+                            <input id="name" type= "text">
                             <p>escriba su apellido</p>
-                            <input type= "text">
+                            <input id="lastName" type= "text">
                             <button id="back">atras</button>
                             <button id="next">adelante</button>`
 
@@ -24,3 +24,10 @@ export const templateRegister = () => {
   return containerRegister;
 }
 
+/*const capturaDatosLogin = () => {
+
+  let name= document.getElementById("name").value;
+  let lastName=document.getElementById("lastName").value;
+  if(9)
+  
+  }*/

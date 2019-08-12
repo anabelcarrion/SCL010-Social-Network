@@ -1,6 +1,6 @@
 import {templateAbout} from './assets/views/templateAbout.js'
 import {templateConfirmationTxt} from './assets/views/templateConfirmationTxt.js'
-import {templateGoogle} from './assets/views/templateGoogle.js'
+//import {templateGoogle} from './assets/views/templateGoogle.js'
 import {templateLogin} from './assets/views/templateLogin.js'
 import {templateMainScreen} from './assets/views/templateMainScreen.js'
 import {templateProfile} from './assets/views/templateProfile.js'
@@ -29,9 +29,9 @@ const showTemplate = (hash) => {
         case 'confirmation':
             containerRoot.appendChild(templateConfirmationTxt())
             break;
-        case 'google':
+        /*case 'google':
             containerRoot.appendChild(templateGoogle())
-            break;
+            break;*/
         case 'login':
             containerRoot.appendChild(templateLogin())
             break;
