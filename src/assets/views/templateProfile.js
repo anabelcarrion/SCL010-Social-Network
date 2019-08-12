@@ -5,6 +5,7 @@ const createAccount = () => {
 export const templateProfile= () => {
   // creamos div que contendrá la plantilla
   const containerProfile = document.createElement('div');
+  containerProfile.setAttribute("class","mainClass");
   // creamos el contenido del login
   const contentProfile = `<p>Ctemplateperfil</p>`;
   // pasar el contenido al div

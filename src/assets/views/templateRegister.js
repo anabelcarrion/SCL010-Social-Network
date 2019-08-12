@@ -1,15 +1,16 @@
 export const templateRegister = () => {
-  const containerRegister = document.createElement('div');
-  //escrir html
-  const contentRegister = `<h1>REGISTRAR cuenta</h1>
+    const containerRegister = document.createElement('div');
+    containerRegister.setAttribute("class","mainClass");
+    //escrir html
+    const contentRegister = `<h1>Registrar cuenta</h1>
                             <p>Escriba su nombre</p>                            
-                            <input id="name" type= "text">
-                            <p>escriba su apellido</p>
-                            <input id="lastName" type= "text">
-                            <button id="back">atras</button>
-                            <button id="next">adelante</button>`
+                            <input class="input" id="name" type= "text">
+                            <p>Escriba su apellido</p>
+                            <input class="input" id="lastName" type= "text">
+                            <button class="button" id="back">Volver</button>
+                            <button class="button" id="next">Seguir</button>`
+      containerRegister.innerHTML = contentRegister;
 
-  containerRegister.innerHTML = contentRegister;
 
   const btnBack = containerRegister.querySelector('#back');
   btnBack.addEventListener('click', () => {

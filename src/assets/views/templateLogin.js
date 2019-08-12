@@ -1,14 +1,16 @@
 export const templateLogin = () => {
   // creamos div que contendrá la plantilla
   const containerLogin = document.createElement('div');
+  containerLogin.setAttribute("class","mainClass");
   // creamos el contenido del login
   const contentLogin = ` <h1>Iniciar Sesión</h1>
                         <p>Ingrese su correo de usuario:</p>                            
-                        <input id="email" type="email" placeholder="Ingrese un correo">
+
+                        <input class="input" type= "text" placeholder="Ingrese un correo">
                         <p>Ingrese su contraseña de usuario:</p>
-                        <input id="password" type= "password" placeholder="Ingrese una contraseña">
-                        <button id="back">atras</button>
-                        <button id="next">adelante</button>
+                        <input class="input" id="password" type= "password" placeholder="Ingrese una contraseña">
+                        <button class="button" id="back">Volver</button>
+                        <button class="button" id="next">Seguir</button>
                         `;
   // pasar el contenido al div
   containerLogin.innerHTML = contentLogin;
@@ -29,6 +31,3 @@ export const templateLogin = () => {
   })
   return containerLogin;
 }
-
-
-

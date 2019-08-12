@@ -4,8 +4,8 @@
     // creamos el contenido del login
     const contentWall = `<p id="fullName"></p>
     <p>AQUI SE MOSTRARA EL MURO</p>
-    <button id="back">atras</button>
-    <button id="next">adelante</button>`;
+    <button id="back" class="button">atras</button>
+    <button id="next" class="button">adelante</button>`;
     // pasar el contenido al div
     containerWall.innerHTML = contentWall;
     
