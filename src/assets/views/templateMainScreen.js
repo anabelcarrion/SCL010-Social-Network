@@ -1,6 +1,8 @@
 import { loginGoogle } from './../js/auth.js';
+import { templateLogin } from "./templateLogin.js";
+import { templateRegister } from './templateRegister.js'
 
-//vista de perfil
+//vista principal en donde tentra que elegir que accion quiere tomar
 export const templateMainScreen = () => {
     // creamos div que contendrá la plantilla
     const containerMainScreen = document.createElement('div');
@@ -22,14 +24,14 @@ export const templateMainScreen = () => {
     // boton para logiarse a la pagina
     const btnLogin = containerMainScreen.querySelector('#login');
     btnLogin.addEventListener('click', () => {
-
+        templateLogin();
         window.location.hash = '#/login';
     })
 
     // boton para registarse a la pagina
     const btnRegister = containerMainScreen.querySelector('#register');
     btnRegister.addEventListener('click', () => {
-        
+        templateRegister();
         window.location.hash = '#/register';
     })
 

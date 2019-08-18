@@ -1,3 +1,5 @@
+// import { templateAbout } from "./templateAbout";
+
 export const templateConfirmationTxt = () => {
     const containerConfirmationTxt = document.createElement('div');
     //escrir html
@@ -5,6 +7,11 @@ export const templateConfirmationTxt = () => {
                      <button class="button" id="next">Seguir</button> `
 
     containerConfirmationTxt.innerHTML = contentConfirmationTxt;
+    // const btn = containerConfirmationTxt.querySelector('#login-register');
+    // btn.addEventListener('click', () =>{
+    //     templateAbout()
+    //     window.location.hash = '#/about';
+    // })
 
     const btnNext = containerConfirmationTxt.querySelector('#next');
    // evento del botón que llama a la autentificación de google.

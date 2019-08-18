@@ -193,6 +193,51 @@ export const signIn = () => {
   // [END authwithemail]
   //document.getElementById('quickstart-sign-in').disabled = true;
 }
+//f(x) de guardar y optener post
+export const savePost = () => {
+  var db = firebase.firestore();
+  // colección creada
+  db.collection("posts").add({
+  post: document.getElementById('text-post').value,
+  userId: firebase.auth().currentUser.uid,
+  // time: new Date(),
+  
+})
+.then(function(docRef) {
+  console.log("Document written with ID: ", docRef.id);
+})
+.catch(function(error) {
+  console.error("Error adding document: ", error);
+});
+};
+
+export const getPost = () => {
+  var db = firebase.firestore();
+  db.collection("posts").where("userId", "==", firebase.auth().currentUser.uid)      //.orderBy("time", "desc").limit(20)
+  .get()
+  .then(function(querySnapshot) {
+    querySnapshot.forEach(function(doc) {
+      let post=db.collection("posts");
+      // post.orderBy("time","desc")
+      console.log(doc.data())
+      toConect(doc)
+    });
+  })
+  .catch(function(error) {
+    console.log("Error getting documents: ", error);
+  });
+};
+
+//Function to delete a document from posts collection
+export const deletePost = (id) => {
+let db = firebase.firestore();
+db.collection("posts").doc(id).delete().then(function() {
+  console.log("Document successfully deleted!");
+}).catch(function(error) {
+  console.error("Error removing document: ", error);
+})
+}
+  
 
 export const signOut = () => {
   //Ejuecutamos la salida mediante firebase auth

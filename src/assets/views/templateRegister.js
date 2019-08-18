@@ -1,3 +1,7 @@
+import { templateMainScreen } from "./templateMainScreen.js";
+import { templateRegister2 } from "./templateRegister2.js";
+// import { template } from "@babel/core";
+
 export const templateRegister = () => {
     const containerRegister = document.createElement('div');
     containerRegister.setAttribute("class","mainClass");
@@ -14,6 +18,7 @@ export const templateRegister = () => {
 
   const btnBack = containerRegister.querySelector('#back');
   btnBack.addEventListener('click', () => {
+    templateMainScreen();
     window.location.hash = '';
   })
 

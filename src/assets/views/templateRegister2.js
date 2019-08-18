@@ -9,7 +9,7 @@ export const templateRegister2 = () => {
                             <p>Ingrese un correo</p>                            
                             <input id="email" class="input" type= "text">
                             <p>Ingrese una contraseña</p>
-                             <input id="password" class="input" type="password">
+                             <input type="password" id="password" class="input" type="password">
                              <p>Ingrese nuevamente su contraseña</p>
                              <input id="password1" class="input" type="password">                          
                              <input class="input" id="name" type= "text" hidden="false">
@@ -26,7 +26,7 @@ export const templateRegister2 = () => {
 
     const btnBack = containerRegister2.querySelector('#back');
     btnBack.addEventListener('click', () =>{
-     
+        templateRegister();
         window.location.hash = '#/register';
     })
     return containerRegister2;
