@@ -29,14 +29,6 @@ export const templateLogin = () => {
   // evento del botón que llama a la autentificación de google.
   btnNext.addEventListener('click', () => {
     signIn();
-    if (firebase.auth().currentUser != null && firebase.auth().currentUser.emailVerified)
-    {
-      window.location.hash = '#/wall';
-    }
-    else {
-      console.log("No está verificado el usuario");
-      console.log(firebase.auth().currentUser.emailVerified);
-    }
   })
   return containerLogin;
 }

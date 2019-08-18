@@ -1,4 +1,4 @@
-//muro
+
 export const templateAbout = () => {
     const containerAbout = document.createElement('div');
     //escrir html
