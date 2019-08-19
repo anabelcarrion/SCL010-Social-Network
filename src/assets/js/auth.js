@@ -205,9 +205,14 @@ export const signOut = () => {
 
 //f(x) de guardar y optener post
 export const savePost = () => {
-  var db = firebase.firestore();
-  // colección creada
+  let db = firebase.firestore();
+  
+  let month = new Array ("Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre");
+  let date=new Date();
+  let dateCreate= (date.getDate() + " de " + month[date.getMonth()] + " de " + date.getFullYear());
+// colección creada
   db.collection("posts").add({
+      date:dateCreate,
       post: document.getElementById('text-post').value,
       userId: firebase.auth().currentUser.uid,
       fullName: localStorage.getItem("fullName"),
