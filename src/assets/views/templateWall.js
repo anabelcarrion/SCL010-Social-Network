@@ -8,10 +8,11 @@ import { savePost } from './../js/auth.js';
                         <p id="post-error" class="error"></p>
                         <p id="post">¿Eventos?, cuentanos!</p>
                         <textarea  maxlength="50" rows="4" cols="40" placeholder="escribe algo.." name=""  id="text-post"></textarea>
+                        <div id="buttonContainer">
                         <button class="button" id="toPost">Publicar</button>
-                        <!--menu de abajo/-->
                         <button class="button" id="posts"> Ver Publicaciones</button>
-                        <button class="button" id="back">Volver</button>`
+                        <button class="button" id="back">Volver</button>
+                        </div>`
                         
     // pasar el contenido al div
     containerWall.innerHTML = contentWall;

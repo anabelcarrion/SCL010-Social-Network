@@ -11,8 +11,10 @@ export const templateRegister = () => {
                             <input class="input" id="name" type= "text">
                             <p>Escriba su apellido</p>
                             <input class="input" id="lastName" type= "text">
+                            <div id="buttonContainer">
                             <button class="button" id="back">Volver</button>
-                            <button class="button" id="next">Seguir</button>`
+                            <button class="button" id="next">Seguir</button>
+                            </div>`
       containerRegister.innerHTML = contentRegister;
 
 
