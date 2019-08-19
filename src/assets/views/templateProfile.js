@@ -11,21 +11,22 @@ export const templateProfile = () => {
       posts.forEach((doc) => {
         let fullName = doc.data().fullName;
         let post = doc.data().post;
-        let date=doc.data().date;
+        let date=doc.data().timestamp.toDate();
         const contentPost = document.createElement('div');
         contentPost.innerHTML =`
                           <div class = "postBlock"> 
                           <h5>
                            <p id="fullname"></p>
-
-                          </h5>
                            <p id="date"></p>
-
+                          </h5>
                            <p id="post"></p>
                            </div>
                            `;
         contentPost.querySelector("#fullname").innerHTML = fullName;
-        contentPost.querySelector("#date").innerHTML = date;
+        let month = new Array ("Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre");
+        let dateCreate= (date.getDate() + " de " + month[date.getMonth()] + " de " + date.getFullYear());
+        
+        contentPost.querySelector("#date").innerHTML = dateCreate;
         contentPost.querySelector("#post").innerHTML = post;
         containerProfile.appendChild(contentPost);
 

@@ -206,13 +206,10 @@ export const signOut = () => {
 //f(x) de guardar y optener post
 export const savePost = () => {
   let db = firebase.firestore();
-  
-  let month = new Array ("Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre");
-  let date=new Date();
-  let dateCreate= (date.getDate() + " de " + month[date.getMonth()] + " de " + date.getFullYear());
+
 // colección creada
   db.collection("posts").add({
-      date:dateCreate,
+      timestamp:new Date(),
       post: document.getElementById('text-post').value,
       userId: firebase.auth().currentUser.uid,
       fullName: localStorage.getItem("fullName"),
@@ -228,7 +225,7 @@ export const savePost = () => {
 
 export const showPost = () => {
     let db = firebase.firestore();
-    let docRef = db.collection("posts");
+    let docRef = db.collection("posts").orderBy("timestamp", "desc");
    return docRef.get();
    
 };
