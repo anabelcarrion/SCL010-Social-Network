@@ -28,7 +28,6 @@ export const templateRegister2 = () => {
 
     const btnBack = containerRegister2.querySelector('#back');
     btnBack.addEventListener('click', () =>{
-        templateRegister();
         window.location.hash = '#/register';
     })
     return containerRegister2;

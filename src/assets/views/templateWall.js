@@ -6,8 +6,8 @@ import { savePost } from './../js/auth.js';
     // creamos el contenido del login
     const contentWall = `<h2 id="fullName"></h2>
                         <p id="post-error" class="error"></p>
-                        <p id="post">¿Eventos?, cuentanos!</p>
-                        <textarea  maxlength="50" rows="4" cols="40" placeholder="escribe algo.." name=""  id="text-post"></textarea>
+                        <p id="post" class="text" >¿Eventos?, cuentanos!</p>
+                        <textarea  class="input1" maxlength="50" rows="4" cols="40" placeholder="escribe algo.." name=""  id="text-post"></textarea>
                         <div id="buttonContainer">
                         <button class="button" id="toPost">Publicar</button>
                         <button class="button" id="posts"> Ver Publicaciones</button>

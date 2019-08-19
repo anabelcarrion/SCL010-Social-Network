@@ -1,21 +1,11 @@
-// import {templateAbout} from './assets/views/templateAbout.js'
+
 import {templateConfirmationTxt} from './assets/views/templateConfirmationTxt.js'
-//import {templateGoogle} from './assets/views/templateGoogle.js'
 import {templateLogin} from './assets/views/templateLogin.js'
 import {templateMainScreen} from './assets/views/templateMainScreen.js'
 import {templateProfile} from './assets/views/templateProfile.js'
 import {templateRegister} from './assets/views/templateRegister.js'
 import {templateRegister2} from './assets/views/templateRegister2.js'
 import {templateWall} from './assets/views/templateWall.js'
-
-
-// const changeRouter = (hash) =>{
-//     console.log("HASH:", hash);
-//     if( hash === '/#' || hash === '#' || hash === '' || hash === '#/login' || hash === '#/register' || hash ==='#/register2' || hash === '#/confirmation' || hash === '#/about'){
-//         return showTemplate(hash);
-//     }
-//     return showTemplate(hash);
-// }*/
 
 const showTemplate = (hash) =>{
     //console.log("SHOW TEMPLATE HASH", hash);
@@ -26,15 +16,9 @@ const showTemplate = (hash) =>{
 
 
     switch (router) {
-        // case 'about':
-        //     containerRoot.appendChild(templateAbout())
-        //     break;
         case 'confirmation':
             containerRoot.appendChild(templateConfirmationTxt())
             break;
-        /*case 'google':
-            containerRoot.appendChild(templateGoogle())
-            break;*/
         case 'login':
             containerRoot.appendChild(templateLogin())
             break;
@@ -54,10 +38,6 @@ const showTemplate = (hash) =>{
             break;
         case 'wall':
             containerRoot.appendChild(templateWall())
-            break;
-
-        case 'confirmation':
-            containerRoot.appendChild(templateConfirmationTxt());
             break;
         default:
             containerRoot.innerHTML = `<p> Error 404</p>`

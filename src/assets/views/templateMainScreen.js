@@ -9,7 +9,6 @@ export const templateMainScreen = () => {
     containerMainScreen.setAttribute("class","mainClass");
     // creamos el contenido del MainScreen
     const contentMainScreen = ` 
-
         <img width=120 height=120>
         <h4>Vive la vida y olvida tu edad</h4>
     <button class="button" id="google">Iniciar Sesión con Google</button>
@@ -43,5 +42,3 @@ export const templateMainScreen = () => {
     })
     return containerMainScreen;
   }
-
-  
