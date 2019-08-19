@@ -15,8 +15,12 @@ export const templateProfile = () => {
         const contentPost = document.createElement('div');
         contentPost.innerHTML =`
                           <div class = "postBlock"> 
+                          <h5>
                            <p id="fullname"></p>
+
+                          </h5>
                            <p id="date"></p>
+
                            <p id="post"></p>
                            </div>
                            `;
