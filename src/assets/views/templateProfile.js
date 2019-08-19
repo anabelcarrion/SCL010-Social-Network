@@ -11,14 +11,17 @@ export const templateProfile = () => {
       posts.forEach((doc) => {
         let fullName = doc.data().fullName;
         let post = doc.data().post;
+        let date=doc.data().date;
         const contentPost = document.createElement('div');
         contentPost.innerHTML =`
                           <div class = "postBlock"> 
                            <p id="fullname"></p>
+                           <p id="date"></p>
                            <p id="post"></p>
                            </div>
                            `;
         contentPost.querySelector("#fullname").innerHTML = fullName;
+        contentPost.querySelector("#date").innerHTML = date;
         contentPost.querySelector("#post").innerHTML = post;
         containerProfile.appendChild(contentPost);
 
