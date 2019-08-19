@@ -42,8 +42,10 @@ const showTemplate = (hash) =>{
             containerRoot.appendChild(templateMainScreen())
             break;
         case 'profile':
-            containerRoot.appendChild(templateProfile())
-            break;
+            templateProfile().then(templateProfile=>{
+                containerRoot.appendChild(templateProfile);
+            });
+            break;         
         case 'register':
             containerRoot.appendChild(templateRegister())
             break;
