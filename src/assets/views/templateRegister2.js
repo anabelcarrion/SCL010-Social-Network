@@ -13,8 +13,10 @@ export const templateRegister2 = () => {
                              <p>Ingrese nuevamente su contraseña</p>
                              <input id="password1" class="input" type="password">                          
                              <input class="input" id="name" type= "text" hidden="false">
+                             <div id="buttonContainer">
                             <button class="button" id="back">Volver</button>
-                            <button class="button" id="next">Seguir</button>`
+                            <button class="button" id="next">Seguir</button>
+                            </div>`
 
 
     containerRegister2.innerHTML = contentRegister2;

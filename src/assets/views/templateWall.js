@@ -4,14 +4,15 @@ import { savePost } from './../js/auth.js';
     // creamos div que contendrá la plantilla
     const containerWall = document.createElement('div');
     // creamos el contenido del login
-    const contentWall = `<h1 id="fullName"></h1>
+    const contentWall = `<h2 id="fullName"></h2>
+                        <p id="post-error" class="error"></p>
                         <p id="post">¿Eventos?, cuentanos!</p>
                         <textarea  maxlength="50" rows="4" cols="40" placeholder="escribe algo.." name=""  id="text-post"></textarea>
-                        <button  id="toPost" class="buttonA">Publicar</button>
-                        <p id="post-error" class="error"></p>
-                        <!--menu de abajo/-->
-                        <button id="posts" class="buttonA"> Ver Publicaciones</button>
-                        <button id="back" class="buttonA">Volver</button>`
+                        <div id="buttonContainer">
+                        <button class="button" id="toPost">Publicar</button>
+                        <button class="button" id="posts"> Ver Publicaciones</button>
+                        <button class="button" id="back">Volver</button>
+                        </div>`
                         
     // pasar el contenido al div
     containerWall.innerHTML = contentWall;
