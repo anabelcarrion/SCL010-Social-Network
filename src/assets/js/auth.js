@@ -69,7 +69,7 @@ export const handleSignUp = () => {
   if (checkingPassword()) {
     password = document.getElementById('password').value;
   } else {
-    alert("revisar contraseñas, no son iguales")
+    alert("Revisar contraseñas, no son iguales")
   }
   if (email.length < 4) {
     alert('Por favor introduzca una dirección de correo eléctronico.');
@@ -79,8 +79,6 @@ export const handleSignUp = () => {
     alert('Por favor ingrese una contraseña.');
     return;
   }
-  // Sign in with email and pass.
-  // [START createwithemail]
   firebase.auth().createUserWithEmailAndPassword(email, password)
     .then(data => {
       sendEmailVerification();
@@ -93,34 +91,27 @@ export const handleSignUp = () => {
       window.location.hash = '#/confirmation';
     })
     .catch(function (error) {
-      // Handle Errors here.
+
       let errorCode = error.code;
       let errorMessage = error.message;
-      // [START_EXCLUDE]
+
       if (errorCode == 'auth/weak-password') {
-        alert('La contraseña es muy insegura..');
+        alert('La contraseña es muy insegura.');
       } else {
         alert(errorMessage);
       }
       console.log(error);
-      // [END_EXCLUDE]
+
     });
-  // [END createwithemail]
+
 }
 
-/**
- * Sends an email verification to the user.
- */
-
 export const sendEmailVerification = () => {
-  // [START sendemailverification]
+
   firebase.auth().currentUser.sendEmailVerification().then(function () {
-    // Email Verification sent!
-    // [START_EXCLUDE]
-    alert('¡Verificación de correo electrónico enviada!');
-    // [END_EXCLUDE]
+
   });
-  // [END sendemailverification]
+
 }
 
 const checkingPassword = () => {
@@ -135,7 +126,6 @@ const checkingPassword = () => {
   return checkingPassword;
 }
 
-
 export const signIn = () => {
   let email = document.getElementById('email').value;
   let password = document.getElementById('password').value;
@@ -147,8 +137,7 @@ export const signIn = () => {
     alert('Por favor ingrese una contraseña.');
     return;
   }
-  // Sign in with email and pass.
-  // [START authwithemail]
+
   let db = firebase.firestore();
   let docRef = db.collection("users");
   docRef.get()
@@ -170,7 +159,6 @@ export const signIn = () => {
                   });
               } else {
                 alert("No está verificado el usuario");
-                // console.log(firebase.auth().currentUser.emailVerified);
               }
             })
             .catch(function (error) {
@@ -190,8 +178,6 @@ export const signIn = () => {
         }
       });
     });
-  // [END authwithemail]
-  //document.getElementById('quickstart-sign-in').disabled = true;
 }
 
 export const signOut = () => {
@@ -209,3 +195,28 @@ export const signOut = () => {
     console.log(error);
   })
 }
+
+export const savePost = () => {
+  let db = firebase.firestore();
+
+  // colección creada
+  db.collection("posts").add({
+      timestamp: new Date(),
+      post: document.getElementById('text-post').value,
+      userId: firebase.auth().currentUser.uid,
+      fullName: localStorage.getItem("fullName"),
+    })
+    .then(function (docRef) {
+      console.log("Document written with ID: ", docRef.id);
+    })
+    .catch(function (error) {
+      console.error("Error adding document: ", error);
+    });
+};
+
+export const showPost = () => {
+  let db = firebase.firestore();
+  let docRef = db.collection("posts").orderBy("timestamp", "desc");
+  return docRef.get();
+
+};

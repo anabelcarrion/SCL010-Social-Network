@@ -9,12 +9,14 @@ export const templateRegister2 = () => {
                             <p>Ingrese un correo</p>                            
                             <input id="email" class="input" type= "text">
                             <p>Ingrese una contraseña</p>
-                             <input id="password" class="input" type="password">
+                             <input type="password" id="password" class="input" type="password">
                              <p>Ingrese nuevamente su contraseña</p>
                              <input id="password1" class="input" type="password">                          
                              <input class="input" id="name" type= "text" hidden="false">
+                             <div id="buttonContainer">
                             <button class="button" id="back">Volver</button>
-                            <button class="button" id="next">Seguir</button>`
+                            <button class="button" id="next">Seguir</button>
+                            </div>`
 
 
     containerRegister2.innerHTML = contentRegister2;
@@ -26,7 +28,6 @@ export const templateRegister2 = () => {
 
     const btnBack = containerRegister2.querySelector('#back');
     btnBack.addEventListener('click', () =>{
-     
         window.location.hash = '#/register';
     })
     return containerRegister2;

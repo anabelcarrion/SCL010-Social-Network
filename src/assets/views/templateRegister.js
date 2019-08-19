@@ -1,3 +1,7 @@
+import { templateMainScreen } from "./templateMainScreen.js";
+import { templateRegister2 } from "./templateRegister2.js";
+// import { template } from "@babel/core";
+
 export const templateRegister = () => {
     const containerRegister = document.createElement('div');
     containerRegister.setAttribute("class","mainClass");
@@ -7,13 +11,16 @@ export const templateRegister = () => {
                             <input class="input" id="name" type= "text">
                             <p>Escriba su apellido</p>
                             <input class="input" id="lastName" type= "text">
+                            <div id="buttonContainer">
                             <button class="button" id="back">Volver</button>
-                            <button class="button" id="next">Seguir</button>`
+                            <button class="button" id="next">Seguir</button>
+                            </div>`
       containerRegister.innerHTML = contentRegister;
 
 
   const btnBack = containerRegister.querySelector('#back');
   btnBack.addEventListener('click', () => {
+    templateMainScreen();
     window.location.hash = '';
   })
 
